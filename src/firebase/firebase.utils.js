@@ -60,8 +60,16 @@ export const convertCollectionsSnapshotToMap = (collections) => {
     accumulator[collection.title.toLowerCase()] = collection;
     return accumulator;
   }, {})
-  
-}
+};
+
+export function getCurrentUser() {
+  return new Promise((resolve, reject) => {
+    const unsubcribe = auth.onAuthStateChanged(userAuth => {
+      unsubcribe();
+      resolve(userAuth);
+    }, reject)
+  });
+};
 
 firebase.initializeApp(config);
 
