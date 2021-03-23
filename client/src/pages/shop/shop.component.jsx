@@ -3,7 +3,7 @@ import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import CollectionsOverviewGqlContainer from "../../components/collections-overview/collections-overview-gql.container";
-import CollectionPageContainer from "../collection/collection.component";
+import CollectionsGqlContainer from "../collection/collection-gql.container";
 
 import { fetchCollectionsStart } from '../../redux/shop/shop.actions';
 
@@ -22,7 +22,7 @@ const ShopPage = ({fetchCollectionsStart, match}) => {
       />
       <Route
         path={`${match.path}/:collectionId`}
-        component={CollectionPageContainer}
+        component={CollectionsGqlContainer}
       />
     </div>
   )
